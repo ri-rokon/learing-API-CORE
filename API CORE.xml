@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API CORE</name>
+    </assembly>
+    <members>
+        <member name="M:API_CORE.Controllers.NationalParksController.GetNationalParks">
+            <summary>
+            Get list of national parks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API_CORE.Controllers.NationalParksController.GetNationalPark(System.Int32)">
+            <summary>
+            Get individual national park
+            </summary>
+            <param name="nationalParkId"> The Id of the national Park </param>
+            <returns></returns>
+        </member>
+        <member name="M:WildAPI.Repository.NationalParkRepository.Save">
+            <summary>
+            saves all changes made in the context of the database
+            </summary>
+            <returns>the SaveChanges method return the number of rows affected</returns>
+        </member>
+    </members>
+</doc>
