@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WildAPI.Models;
+using API_CORE.Models;
 using WildAPI.Models.Dtos;
 
 namespace API_CORE

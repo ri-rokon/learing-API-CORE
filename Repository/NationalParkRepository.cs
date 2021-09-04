@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WildAPI.Models;
-using WildAPI.Repository.IRepository;
+using API_CORE.Models;
+using API_CORE.Repository.IRepository;
 
-namespace WildAPI.Repository
+namespace API_CORE.Repository
 {
     public class NationalParkRepository : INationalParkRepository
     {

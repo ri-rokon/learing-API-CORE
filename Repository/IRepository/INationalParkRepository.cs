@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WildAPI.Models;
+using API_CORE.Models;
 
-namespace WildAPI.Repository.IRepository
+namespace API_CORE.Repository.IRepository
 {
     public interface INationalParkRepository
     {

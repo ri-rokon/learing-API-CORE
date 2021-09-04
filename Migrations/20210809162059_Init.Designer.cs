@@ -21,7 +21,7 @@ namespace API_CORE.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WildAPI.Models.NationalPark", b =>
+            modelBuilder.Entity("API_CORE.Models.NationalPark", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

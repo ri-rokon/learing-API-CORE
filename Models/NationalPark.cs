@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WildAPI.Models
+namespace API_CORE.Models
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class NationalPark
