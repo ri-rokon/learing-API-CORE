@@ -403,3 +403,6 @@ C:\Users\rirok\source\repos\API\WEB_CORE\bin\Debug\net5.0\runtimes\win-arm\lib\n
 C:\Users\rirok\source\repos\API\WEB_CORE\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\rirok\source\repos\API\WEB_CORE\obj\Debug\net5.0\Razor\Views\NationalParks\Index.cshtml.g.cs
 C:\Users\rirok\source\repos\API\WEB_CORE\obj\Debug\net5.0\Razor\Views\NationalParks\Upsert.cshtml.g.cs
+C:\Users\rirok\source\repos\API\WEB_CORE\obj\Debug\net5.0\Razor\Views\Home\AccessDenied.cshtml.g.cs
+C:\Users\rirok\source\repos\API\WEB_CORE\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
+C:\Users\rirok\source\repos\API\WEB_CORE\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs

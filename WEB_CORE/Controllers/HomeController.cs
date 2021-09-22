@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using WEB_CORE.Models;
 using WEB_CORE.Repository.IRepository;
@@ -66,14 +69,55 @@ namespace WEB_CORE.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LogIn(User obj)
         {
-            User objUser = await _accRepo.LoginAsync(SD.AccountAPIPath, obj);
-            if(obj.Token ==null)
+            User objUser = await _accRepo.LoginAsync(SD.AccountAPIPath + "authenticate/", obj);
+            if (objUser.Token ==null)
             {
                 return View();
             }
+            var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+            identity.AddClaim(new Claim(ClaimTypes.Name, objUser.Username));
+            identity.AddClaim(new Claim(ClaimTypes.Role, objUser.Role));
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+
+
             HttpContext.Session.SetString("JWToken", objUser.Token);
-            return RedirectToAction("Home");
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(User obj)
+        {
+            bool result = await _accRepo.RegisterAsync(SD.AccountAPIPath + "register/", obj);
+            if (result == false)
+            {
+                return View();
+            }
+            TempData["alert"] = "Registeration Successful";
+            return RedirectToAction("Login");
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+
+
+
+            await HttpContext.SignOutAsync();
+            HttpContext.Session.SetString("JWToken", "");
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
