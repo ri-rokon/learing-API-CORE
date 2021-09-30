@@ -33,7 +33,7 @@ namespace WEB_CORE
                     options.Cookie.HttpOnly = true;
                     options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                     options.LoginPath = "/Home/Login";
-                    options.AccessDeniedPath = "/home/AccessDenied";
+                    options.AccessDeniedPath = "/Home/AccessDenied";
                     options.SlidingExpiration = true;
                 });
             services.AddHttpContextAccessor();
@@ -75,9 +75,9 @@ namespace WEB_CORE
             app.UseRouting();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-
-            app.UseAuthorization();
             app.UseSession();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

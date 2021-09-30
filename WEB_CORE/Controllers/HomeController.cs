@@ -79,9 +79,6 @@ namespace WEB_CORE.Controllers
             identity.AddClaim(new Claim(ClaimTypes.Role, objUser.Role));
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-
-
             HttpContext.Session.SetString("JWToken", objUser.Token);
             return RedirectToAction("Index");
         }
@@ -106,9 +103,6 @@ namespace WEB_CORE.Controllers
 
         public async Task<IActionResult> Logout()
         {
-
-
-
             await HttpContext.SignOutAsync();
             HttpContext.Session.SetString("JWToken", "");
             return RedirectToAction("Index");
